@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Hunters - Level 1</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body class="fade-in">
+    <div class="card">
+        <h1>Congratulations! You got it right.</h1>
+        <h2>Here is the question you need to solve</h2><br>
+        <p>Check if a Given Number is a Fibonacci Number<br><br>
+            Explanation:<br><br>
+            The Fibonacci sequence is a series of numbers where each number is the sum of the two preceding ones, starting from 0 and 1. The sequence looks like this:<br>
+            0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...<br>
+            Given a number, determine if it is a Fibonacci number.<br><br>
+            
+            Example 1:<br><br>
+            Input: n = 5<br>
+            Output: True<br>
+            Explanation: 5 is a Fibonacci number (0, 1, 1, 2, 3, 5).<br><br><br>
+            
+            Example 2:<br><br>
+            Input: n = 4<br>
+            Output: False<br>
+            Explanation: 4 is not a Fibonacci number (0, 1, 1, 2, 3, 5, ...).<br>
+            </p>
+    </div>
+
+    <div id="timer-container">25:00</div>
+
+    <script>
+        let timeLeft = 25 * 60; 
+        const timerElement = document.getElementById("timer-container");
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerElement.innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+            if (timeLeft === 0) {
+                clearInterval(timerInterval);
+                timerElement.style.display = "none";
+                window.location.href = "submit.html";
+            } else {
+                timeLeft--;
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Hunters - Level 1</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body class="fade-in">
+    <div class="card">
+        <h1>Congratulations! You got it right.</h1>
+        <h2>Here is the question you need to solve</h2><br>
+        <p>Print the First n Natural Numbers and Their Sum<br><br>
+            Explanation:<br><br>
+            Write a program to print the first n natural numbers and calculate their sum.<br><br>
+            
+            Example 1:<br><br>
+            Input: n = 5<br>
+            Output:<br>
+            
+            Numbers: 1, 2, 3, 4, 5  <br>
+            Sum: 15<br><br><br>
+
+            Example 2:<br><br>
+            Input: n = 3<br>
+            Output:<br>
+
+            Numbers: 1, 2, 3  <br>
+            Sum: 6<br>
+            </p>
+    </div>
+
+    <div id="timer-container">25:00</div>
+
+    <script>
+        let timeLeft = 25 * 60; 
+        const timerElement = document.getElementById("timer-container");
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerElement.innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+            if (timeLeft === 0) {
+                clearInterval(timerInterval);
+                timerElement.style.display = "none";
+                window.location.href = "submit.html";
+            } else {
+                timeLeft--;
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>

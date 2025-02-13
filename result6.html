@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Hunters - Level 1</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body class="fade-in">
+    <div class="card">
+        <h1>Congratulations! You got it right.</h1>
+        <h2>Here is the question you need to solve</h2><br>
+        <p> Find the Even Numbers in a List<br><br>
+            Explanation:<br><br>
+            Given a list of integers, write a program to find and return all the even numbers in the list.<br>
+            
+            Example 1:<br><br>
+            Input: [1, 2, 3, 4, 5]<br>
+            Output: [2, 4]<br>
+            Explanation: The even numbers in the list are 2 and 4.<br><br><br>
+            
+            Example 2:<br><br>
+            Input: [11, 13, 15, 17]<br>
+            Output: []<br>
+            Explanation: There are no even numbers in the list.<br>
+            </p>
+    </div>
+
+    <div id="timer-container">25:00</div>
+
+    <script>
+        let timeLeft = 25 * 60; 
+        const timerElement = document.getElementById("timer-container");
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerElement.innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+            if (timeLeft === 0) {
+                clearInterval(timerInterval);
+                timerElement.style.display = "none";
+                window.location.href = "submit.html";
+            } else {
+                timeLeft--;
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>

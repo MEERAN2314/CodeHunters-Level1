@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Hunters - Level 1</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body class="fade-in">
+    <div class="card">
+        <h1>Congratulations! You got it right.</h1>
+        <h2>Here is the question you need to solve</h2><br>
+        <p> Check Whether a Given Number is an Armstrong Number<br><br>
+            Explanation:<br><br>
+            An Armstrong number is a number that is equal to the sum of its own digits each raised to the power of the number of digits.<br>
+            For example, 153 is an Armstrong number because 1³ + 5³ + 3³ = 153.<br><br>
+            
+            Example 1:<br><br>
+            Input: n = 153<br>
+            Output: True<br>
+            Explanation: 1³ + 5³ + 3³ = 1 + 125 + 27 = 153.<br><br><br>
+            
+            Example 2:<br><br>
+            Input: n = 123<br>
+            Output: False<br>
+            Explanation: 1³ + 2³ + 3³ = 1 + 8 + 27 = 36 ≠ 123.<br>
+            
+            </p>
+    </div>
+
+    <div id="timer-container">25:00</div>
+
+    <script>
+        let timeLeft = 25 * 60; 
+        const timerElement = document.getElementById("timer-container");
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerElement.innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+            if (timeLeft === 0) {
+                clearInterval(timerInterval);
+                timerElement.style.display = "none";
+                window.location.href = "submit.html";
+            } else {
+                timeLeft--;
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
