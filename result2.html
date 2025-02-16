@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Hunters - Level 1</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body class="fade-in">
+    <div class="card">
+        <h1>Congratulations! You got it right.</h1>
+        <h2>Here is the question you need to solve</h2><br>
+        <p>Print All Prime Numbers in an Interval<br><br>
+            Explanation:<br><br>
+            A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. Given two numbers start and end, print all prime numbers in that interval.<br>
+            
+            Example 1:<br><br>
+            Input: start = 10, end = 20<br>
+            Output: [11, 13, 17, 19]<br>
+            Explanation: These are the prime numbers between 10 and 20.<br><br><br>
+            
+            Example 2:<br><br>
+            Input: start = 1, end = 5<br>
+            Output: [2, 3, 5]<br>
+            Explanation: These are the prime numbers between 1 and 5.<br>
+            
+            </p>
+    </div>
+
+    <div id="timer-container">25:00</div>
+
+    <script>
+        let timeLeft = 25 * 60; 
+        const timerElement = document.getElementById("timer-container");
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerElement.innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+            if (timeLeft === 0) {
+                clearInterval(timerInterval);
+                timerElement.style.display = "none";
+                window.location.href = "submit.html";
+            } else {
+                timeLeft--;
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>

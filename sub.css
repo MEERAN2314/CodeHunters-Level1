@@ -1,0 +1,44 @@
+html{
+    color: #f0f0f0;
+}
+body {
+    min-height: 100vh;
+    background: #0b0d15;
+    color: #a2a5b3;
+    align-content: center;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.card{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0 auto;
+    padding: 2em;
+    width: 900px;
+    background: #1c1f2be3;
+    text-align: center;
+    border-radius: 10px;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+h1{
+    color: white;
+}
+
+p{
+    color: white;
+}
+h2{
+    font-size: 30px;
+    color: white;
+}
+h3{
+    color: white;
+    font-size: 25px;
+}

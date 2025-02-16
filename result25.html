@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Hunters - Level 1</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body class="fade-in">
+    <div class="card">
+        <h1>Congratulations! You got it right.</h1>
+        <h2>Here is the question you need to solve</h2><br>
+        <p>Convert Time from 12-Hour to 24-Hour Format<br><br>
+            Explanation:<br><br>
+            Write a program to convert time from the 12-hour format (e.g., "03:45 PM") to the 24-hour format (e.g., "15:45").<br><br>
+            
+            Example 1:<br><br>
+            Input: "03:45 PM"<br>
+            Output: "15:45"<br>
+            Explanation: 03:45 PM in 12-hour format is 15:45 in 24-hour format.<br><br><br>
+            
+            Example 2:<br><br>
+            Input: "12:00 AM"<br>
+            Output: "00:00"<br>
+            Explanation: 12:00 AM in 12-hour format is 00:00 in 24-hour format.<br>
+            </p>
+    </div>
+
+    <div id="timer-container">25:00</div>
+
+    <script>
+        let timeLeft = 25 * 60; 
+        const timerElement = document.getElementById("timer-container");
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerElement.innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+            if (timeLeft === 0) {
+                clearInterval(timerInterval);
+                timerElement.style.display = "none";
+                window.location.href = "submit.html";
+            } else {
+                timeLeft--;
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>

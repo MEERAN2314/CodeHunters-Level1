@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Hunters - Level 1</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body class="fade-in">
+    <div class="card">
+        <h1>Congratulations! You got it right.</h1>
+        <h2>Here is the question you need to solve</h2><br>
+        <p> Print ASCII Value of a Character<br><br>
+            Explanation:<br><br>
+            Write a program to print the ASCII value of a given character.<br>
+            The ASCII value is a numerical representation of a character.<br><br>
+            
+            Example 1:<br><br>
+            Input: 'A'<br>
+            Output: 65<br>
+            Explanation: The ASCII value of 'A' is 65.<br><br><br>
+            
+            Example 2:<br><br>
+            Input: 'z'<br>
+            Output: 122<br>
+            Explanation: The ASCII value of 'z' is 122.<br>
+            </p>
+    </div>
+
+    <div id="timer-container">25:00</div>
+
+    <script>
+        let timeLeft = 25 * 60; 
+        const timerElement = document.getElementById("timer-container");
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerElement.innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+            if (timeLeft === 0) {
+                clearInterval(timerInterval);
+                timerElement.style.display = "none";
+                window.location.href = "submit.html";
+            } else {
+                timeLeft--;
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>

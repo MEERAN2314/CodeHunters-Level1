@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Hunters - Level 1</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body class="fade-in">
+    <div class="card">
+        <h1>Congratulations! You got it right.</h1>
+        <h2>Here is the question you need to solve</h2><br>
+        <p> Find the Factorial of a Number<br><br>
+            Explanation:<br><br>
+            The factorial of a non-negative integer n is the product of all positive integers less than or equal to n.<br> 
+            It is denoted by n!. For example, 5! = 5 × 4 × 3 × 2 × 1 = 120.<br><br>
+            
+            Example 1:<br><br>
+            Input: n = 5<br>
+            Output: 120<br>
+            Explanation: 5! = 5 × 4 × 3 × 2 × 1 = 120.<br><br><br>
+            
+            Example 2:<br><br>
+            Input: n = 0<br>
+            Output: 1<br>
+            Explanation: By definition, 0! = 1.<br>            
+            </p>
+    </div>
+
+    <div id="timer-container">25:00</div>
+
+    <script>
+        let timeLeft = 25 * 60; 
+        const timerElement = document.getElementById("timer-container");
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerElement.innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+            if (timeLeft === 0) {
+                clearInterval(timerInterval);
+                timerElement.style.display = "none";
+                window.location.href = "submit.html";
+            } else {
+                timeLeft--;
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>

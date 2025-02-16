@@ -1,0 +1,57 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Hunters - Level 1</title>
+    <link rel="stylesheet" href="result.css">
+</head>
+<body class="fade-in">
+    <div class="card">
+        <h1>Congratulations! You got it right.</h1>
+        <h2>Here is the question you need to solve</h2><br>
+        <p>Calculate the Area of a Circle, Square, and Rectangle<br><br>
+            Explanation:<br><br>
+            Write a program to calculate the area of a circle, square, and rectangle based on user input.<br><br>
+            
+            Area of a circle = πr²<br>
+            
+            Area of a square = side²<br>
+            
+            Area of a rectangle = length × width<br><br>
+            
+            Example 1:<br><br>
+            Input: shape = "circle", radius = 5<br>
+            Output: 78.54<br>
+            Explanation: The area of the circle is π × 5² ≈ 78.54.<br><br><br>
+            
+            Example 2:<br><br>
+            Input: shape = "rectangle", length = 4, width = 6<br>
+            Output: 24<br>
+            Explanation: The area of the rectangle is 4 × 6 = 24.<br>
+            </p>
+    </div>
+
+    <div id="timer-container">25:00</div>
+
+    <script>
+        let timeLeft = 25 * 60; 
+        const timerElement = document.getElementById("timer-container");
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerElement.innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+            if (timeLeft === 0) {
+                clearInterval(timerInterval);
+                timerElement.style.display = "none";
+                window.location.href = "submit.html";
+            } else {
+                timeLeft--;
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>

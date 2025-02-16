@@ -1,0 +1,190 @@
+
+
+html{
+    color: #f0f0f0;
+}
+body {
+    transform: scale(0.8);
+    margin: 0;
+    padding: 0;
+    background-color: #0b0d15;
+    color: #a2a5b3;
+    align-content: center;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    transition: opacity 0.8s ease-out;
+    position: static;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 70px;
+}
+.fade-out {
+    opacity: 0;
+}
+
+h1{
+    font-size: 40px ;
+    font-weight: bold;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: white;
+}
+.card{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0 auto;
+    padding: 2em;
+    width: 900px;
+    background: #1c1f2be3;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+}
+
+
+
+p{
+    color: white;
+}
+h2{
+    font-size: 30px;
+    color: white;
+}
+h3{
+    color: white;
+    font-size: 25px;
+}
+.instructions{
+    font-size: 30px;
+    color: white;
+}
+
+.list{
+    color: white;
+    font-size: 30px;
+}
+.number{
+    width: 700%;
+    height: 25px;
+}
+
+.submit {
+    margin-top: 30px;
+    padding: 15px 40px;
+    border: none;
+    outline: none;
+    color: #FFF;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 12px;
+    font-size: 20px;
+}
+.submit::after {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #353434;
+    left: 0;
+    top: 0;
+    border-radius: 9px;
+}
+
+.submit::before {
+    content: "";
+    background: linear-gradient(
+        45deg,
+        #FF0000, #FF7300, #FFFB00, #48FF00,
+        #00FFD5, #002BFF, #FF00C8, #FF0000
+    );
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 600%;
+    z-index: -1;
+    width: calc(100% + 4px);
+    height:  calc(100% + 4px);
+    filter: blur(8px);
+    animation: glowing 20s linear infinite;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+    opacity: 0;
+}
+
+@keyframes glowing {
+    0% {background-position: 0 0;}
+    50% {background-position: 400% 0;}
+    100% {background-position: 0 0;}
+}
+
+
+.submit:hover::before {
+    opacity: 1;
+}
+
+.submit:active:after {
+    background: transparent;
+}
+
+.submit:active {
+    color: #000;
+    font-weight: bold;
+}
+
+
+.inputBox{
+    align-items: center;
+    right: -265px;
+    position: relative;
+    width: 350px;
+}
+
+.inputBox input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(255, 255,255, 0.25);
+    background: #1d2b3a;
+    border-radius: 5px;
+    outline: none;
+    color: #fff;
+    font-size: 1em;
+    transition: 0.5s;
+}
+
+.inputBox span{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: rgba(255, 255,255, 0.25);
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span{
+    color: #00dfc4;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background: #1d2b3a;
+    border-left: 1px solid #00dfc4;
+    border-right: 1px solid #00dfc4; 
+    letter-spacing: 0.2em;
+}
+
+.inputBox input:valid ,
+.inputBox input:focus {
+    border: 1px solid #00dfc4;
+}
+
+.inputBox:nth-child(2) input:valid ~ span,
+.inputBox:nth-child(2) input:focus ~ span {
+    background: #00dfc4;
+    color: #1d2b3a;
+    border-radius: 2px;
+}
+

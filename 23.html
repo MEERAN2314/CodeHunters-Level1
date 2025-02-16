@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Hunters - Level 1</title>
+    <link rel="stylesheet" href="page.css">
+</head>
+<body class="fade-in">
+    <div class="card">
+        <h1>UNSCRAMBLE THE WORD</h1>
+        <p id="jumbled-word"></p><br/>
+        <div class="inputBox">
+            <input type="text" id="user-input" class="number" required="required"><br/>
+            <span>Correct Word</span>
+        </div><br/>
+        <button onclick="checkAnswer()" class="submit">Submit</button>
+    </div>
+    <div id="timer-container">05:00</div>
+
+
+    <script>
+        const jumbledWord = "DTSROE SWDOR"; 
+        const correctWord = "sorted words"; 
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("jumbled-word").textContent = `Jumbled Word: ${jumbledWord}`;
+        });
+    
+        function checkAnswer() {
+            const userInput = document.getElementById("user-input").value.trim().toLowerCase();
+    
+            if (userInput === correctWord) {
+            document.body.classList.add("fade-out");
+            setTimeout(() => {
+                window.location.href = "result23.html";
+            }, 800);
+            } else {
+                alert("Incorrect!! Try again....");
+            }
+        }
+
+        let timeLeft = 5 * 60; 
+        const timerElement = document.getElementById("timer-container");
+
+        function updateTimer() {
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            timerElement.innerText = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+            if (timeLeft === 0) {
+                clearInterval(timerInterval);
+                timerElement.style.display = "none";
+                window.location.href = "end.html";
+            } else {
+                timeLeft--;
+            }
+        }
+
+        const timerInterval = setInterval(updateTimer, 1000);
+    </script>
+    
+</body>
+</html>
